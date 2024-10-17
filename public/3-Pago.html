@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caramel Delights - Pago</title>
+    <link rel="icon" href="icon/Cafe.ico">
+    <link rel="stylesheet" href="3-Pago.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
+</head>
+<body>
+    <div id="portada-container"></div>
+    <img id="portada" src="img/Portada.png" alt="portada" />
+    <header class="barra-superior">
+        <img src="img/taza-de-cafe.png" alt="Logo de Caramel Delights" class="logo-img">
+        <a class="logo-link">Caramel Delights</a>
+    </header>
+
+    <div class="titulo-container">
+        <h1 class="titulo">Confirmar Pedido</h1>
+    </div>
+
+    <div id="pago-container">
+        <div id="qr-container">
+            <h2>Código QR</h2>
+            <img src="img/Codigo_QR.jpeg" alt="Código QR" id="codigo-qr">
+        </div>
+        <div id="carrito-lista"></div>
+        <div id="total-container">
+            <h2>Total a Pagar:</h2>
+            <p id="carrito-total">Total: $0.00</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Teléfono: +51 977 954 256</p>
+        <p>Correo: <a href="mailto:carameldelights@example.com" class="footer-email">carameldelights@gmail.com</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || {};
+            const carritoLista = document.getElementById('carrito-lista');
+            const carritoTotal = document.getElementById('carrito-total');
+            let total = 0;
+
+            // Mostrar los productos en el carrito
+            for (const [id, producto] of Object.entries(carrito)) {
+                const div = document.createElement('div');
+                div.classList.add('producto-pago');
+                div.innerHTML = `
+                    <span>${producto.nombre} - $${producto.precio.toFixed(2)} x ${producto.cantidad}</span>
+                `;
+                carritoLista.appendChild(div);
+                total += producto.precio * producto.cantidad;
+            }
+
+            // Mostrar el total
+            carritoTotal.textContent = `Total: $${total.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caramel Delights</title>
+    <link rel="icon" href="icon/Cafe.ico">
+    <link rel="stylesheet" href="2-estilo.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
+</head>
+<body>
+    <div id="portada-container"></div>
+    <img id="portada" src="img/Portada.png" alt="portada" />
+
+    <header class="barra-superior">
+        <img src="img/taza-de-cafe.png" alt="Logo de Caramel Delights" class="logo-img">
+        <a class="logo-link">Caramel Delights</a>
+        <div class="barra-superior__acciones">
+            <div class="perfil">
+                <img src="icon/Perfil.ico" alt="Perfil de Usuario" class="perfil-icono">
+                <span id="nombre-usuario" class="nombre-usuario"></span>
+            </div>
+            <a href="#" class="carrito">
+                <img src="icon/Carrito.ico" alt="Carrito de Compras" class="carrito-icono">
+                <span id="carrito-cantidad" class="carrito-cantidad">0</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="titulo-container">
+        <h1 class="titulo">Productos a la Carta</h1>
+    </div>
+
+    <div id="productos-container">
+        <!-- Productos -->
+        <div class="producto">
+            <img src="img/cafe.png" alt="Producto 1" class="producto-imagen">
+            <h3 class="producto-nombre">Cafe</h3>
+            <ul class="producto-precio">
+                <li>$10.00</li>
+                <button class="agregar-btn">Agregar</button>
+            </ul>
+        </div>
+        <div class="producto">
+            <img src="img/pudin.jpg" alt="Producto 2" class="producto-imagen">
+            <h3 class="producto-nombre">Pudin</h3>
+            <ul class="producto-precio">
+                <li>$1.80</li>
+                <button class="agregar-btn">Agregar</button>
+            </ul>
+        </div>
+        <div class="producto">
+            <img src="img/yogur.jpg" alt="Producto 3" class="producto-imagen">
+            <h3 class="producto-nombre">Yogur con Fruta</h3>
+            <ul class="producto-precio">
+                <li>$2.60</li>
+                <button class="agregar-btn">Agregar</button>
+            </ul>
+        </div>
+        <div class="producto">
+            <img src="img/cupcakes.jpg" alt="Producto 4" class="producto-imagen">
+            <h3 class="producto-nombre">Cupcakes</h3>
+            <ul class="producto-precio">
+                <li>$2.00</li>
+                <button class="agregar-btn">Agregar</button>
+            </ul>
+        </div>
+        <div class="producto">
+            <img src="img/orejitas.jpg" alt="Producto 5" class="producto-imagen">
+            <h3 class="producto-nombre">Orejitas</h3>
+            <ul class="producto-precio">
+                <li>$1.60</li>
+                <button class="agregar-btn">Agregar</button>
+            </ul>
+        </div>
+        <div class="producto">
+            <img src="img/sandwich.jpg" alt="Producto 6" class="producto-imagen">
+            <h3 class="producto-nombre">Sandwich</h3>
+            <ul class="producto-precio">
+                <li>$2.50</li>
+                <button class="agregar-btn">Agregar</button>
+            </ul>
+        </div>
+        <div class="producto">
+            <img src="img/panqueques.jpg" alt="Producto 7" class="producto-imagen">
+            <h3 class="producto-nombre">Panqueques</h3>
+            <ul class="producto-precio">
+                <li>$13.00</li>
+                <button class="agregar-btn">Agregar</button>
+            </ul>
+        </div>
+        <div class="producto">
+            <img src="img/pastel.jpg" alt="Producto 8" class="producto-imagen">
+            <h3 class="producto-nombre">Pastel</h3>
+            <ul class="producto-precio">
+                <li>$2.90</li>
+                <button class="agregar-btn">Agregar</button>
+            </ul>
+        </div>
+    </div>
+
+    <div id="carrito-popup" class="carrito-popup">
+        <div class="carrito-popup-contenido">
+            <span id="carrito-cerrar" class="carrito-cerrar">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <ul id="carrito-lista"></ul>
+            <p id="carrito-total">Total: $0.00</p>
+            <a href="3-Pago.html" class="carrito-pagar">Pagar</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-social">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="icon/Facebook.ico" alt="Facebook" class="social-icon">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="img/Twitter.jpg" alt="Twitter" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="img/instagram.png" alt="Instagram" class="social-icon">
+            </a>
+        </div>
+        <p>Teléfono: +51 977 954 256</p>
+        <p>Correo: <a href="mailto:carameldelights@example.com" class="footer-email">carameldelights@gmail.com</a></p>
+    </footer>
+
+    <script src="carrito.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nombreUsuario = localStorage.getItem('nombreUsuario');
+            if (nombreUsuario) {
+                document.getElementById('nombre-usuario').textContent = nombreUsuario; // Muestra el nombre de usuario
+            }
+        });
+    </script>
+</body>
+</html>

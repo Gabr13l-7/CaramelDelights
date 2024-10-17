@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caramel Delights - Inicio de Sesión</title>
+    <link rel="icon" href="icon/Cafe.ico">
+    <link rel="stylesheet" href="Usuario-estilo.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
+</head>
+<body>
+    <div class="barra-superior">
+        <img src="img/taza-de-cafe.png" alt="Logo" class="logo-img">
+        <a class="logo-link">Caramel Delights</a>
+    </div>
+    <div id="portada-container">
+        <img id="portada" src="img/Portada.png" alt="Portada" />
+        <div id="login-container">
+            <div id="inicio-recuadro">
+                <h2>Iniciar Sesión</h2>
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <input type="text" id="username" name="username" placeholder="Usuario" required>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                    <button type="submit">Entrar</button>
+                </form>
+                <p id="create-account">¿No tienes cuenta? <a href="/registrarse">Crear cuenta</a></p>
+                <p id="message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function handleLogin(event) {
+        event.preventDefault(); // Previene el envío del formulario
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        })
+        .then(response => {
+            if (response.ok) {
+                localStorage.setItem('nombreUsuario', username); // Guarda el nombre de usuario
+                window.location.href = '2-index.html'; // Redirige a la página en caso de éxito
+            } else {
+                document.getElementById('message').textContent = 'Credenciales incorrectas';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('message').textContent = 'Error en el servidor';
+        });
+    }
+    </script>
+</body>
+</html>

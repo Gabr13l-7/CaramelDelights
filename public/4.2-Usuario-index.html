@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caramel Delights - Crear Cuenta</title>
+    <link rel="icon" href="icon/Cafe.ico">
+    <link rel="stylesheet" href="4.2-Usuario-estilo.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
+</head>
+<body>
+    <div class="barra-superior">
+        <img src="img/taza-de-cafe.png" alt="Logo" class="logo-img">
+        <a class="logo-link">Caramel Delights</a>
+    </div>
+    <div id="portada-container"></div>
+    <img id="portada" src="img/Portada.png" alt="Portada" />
+    <div id="login-container">
+        <div id="inicio-recuadro">
+            <h2>Crear Cuenta</h2>
+            <form id="registro-form">
+                <input type="text" id="nombre" placeholder="Nombre y Apellido" required>
+                <input type="text" id="username" placeholder="Usuario" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <input type="date" id="fecha-nacimiento" required>
+                <button type="submit">Crear</button>
+            </form>
+            <p id="message"></p>
+            <p id="login-link">¿Ya tienes cuenta? <a href="Usuario-index.html">Iniciar sesión</a></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('registro-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const fechaNacimiento = document.getElementById('fecha-nacimiento').value.trim();
+
+            const createdAt = new Date().toISOString(); // Fecha y hora actuales
+            const newUser = {
+                nombre_completo: nombre,
+                username,
+                password,
+                fecha_nacimiento: fechaNacimiento,
+                created_at: createdAt
+            };
+
+            fetch('http://localhost:3012/crear-cuenta', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newUser)
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json(); // Espera un JSON en respuesta
+                }
+                throw new Error('Error al crear la cuenta');
+            })
+            .then(data => {
+                document.getElementById('message').textContent = data.message; // Mensaje de éxito
+                document.getElementById('message').style.color = 'green';
+            })
+            .catch(error => {
+                document.getElementById('message').textContent = error.message; // Mensaje de error
+                document.getElementById('message').style.color = 'red';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Estilos para el video de fondo */
+#portada {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Estilos para la barra superior */
+.barra-superior {
+    background-color: #ff7700;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    height: 46px;
+    width: 100%;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Estilos para el logo en la barra superior */
+.logo-img {
+    height: 30px;
+    width: auto;
+}
+
+/* Estilos para el enlace del logo */
+.logo-link {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+/* Estilos para el contenedor de las acciones de la barra superior */
+.barra-superior__acciones {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+/* Estilos para el perfil */
+.perfil {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-left: 20px;
+}
+
+/* Estilos para el ícono de perfil */
+.perfil-icono {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Estilos para el nombre del usuario */
+.nombre-usuario {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/* Estilos para el carrito */
+.carrito {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 40px;
+    position: relative;
+}
+
+/* Estilos para el ícono del carrito */
+.carrito-icono {
+    height: 30px;
+    width: 30px;
+}
+
+/* Estilos para el contador del carrito */
+.carrito-cantidad {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 14px;
+}
+
+/* Estilos para el contenedor del título */
+.titulo-container {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Estilos para el título */
+.titulo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el contenedor de los productos */
+#productos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 100px;
+}
+
+/* Estilos para cada producto */
+.producto {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contenedor de la imagen del producto */
+.producto-imagen-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.producto-imagen {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Estilos para el nombre del producto */
+.producto-nombre {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 10px 0 5px 0;
+}
+
+/* Estilos para el precio del producto */
+.producto-precio {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #ff7700;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+/* Estilos para el botón de agregar */
+.agregar-btn {
+    background-color: #ff7700;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Estilos para el footer */
+.footer {
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    margin-top: 20px;
+}
+
+/* Estilos para los íconos de redes sociales */
+.footer-social {
+    margin-bottom: 15px;
+}
+
+.social-icon {
+    height: 30px;
+    width: 30px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+/* Estilos para el icono del libro de reclamaciones */
+.libro-icono {
+    height: 50px;
+    width: auto;
+    margin: 0 0 15px;
+}
+
+/* Estilos para el correo electrónico en el footer */
+.footer-email {
+    color: #ff7700;
+    text-decoration: none;
+}
+
+/* Estilos para el contenedor del carrito de compras */
+.carrito-popup {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    overflow-y: auto;
+}
+
+.carrito-popup-contenido {
+    padding: 20px;
+    position: relative;
+}
+
+.carrito-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.carrito-popup h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.carrito-popup ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.carrito-popup li {
+    margin-bottom: 10px;
+}
+
+.carrito-popup p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.carrito-pagar {
+    display: block;
+    background-color: #ff7700;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
